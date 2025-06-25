@@ -1,0 +1,18 @@
+# Approach:
+# Start from left
+# find next element in right whicfh is not equal to left
+# the element which is not euqal to left add it position left+1;
+# now again find elementt which is not equal to left;
+
+class Solution {
+    public int removeDuplicates(int[] nums) {
+       int i=0;
+       for(int j=1;j<nums.length;j++){
+        if(nums[i]!=nums[j]){
+            i++;
+            nums[i]=nums[j];
+        }
+       } 
+       return i+1;
+    }
+}
