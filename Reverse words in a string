@@ -1,0 +1,55 @@
+class Solution {
+    public String reverseWords(String s) {  
+     //USing trim(), StringBuilder(),split(); 
+    //   String[] words=s.trim().split("\\s+");
+         
+    //       StringBuilder sb=new StringBuilder();
+    //       for(int i=words.length-1;i>=0;i--){
+    //           sb.append(words[i]);
+    //           if(i!=0){
+    //           sb.append(" ");
+    //           }
+    //       }
+    //       return sb.toString();
+
+      //Without using trim(), split() function.
+      //Approach
+      
+      # 1. Storing list of Characters in a String
+      # 2. Initialize i at end, Run a loop until i>=0;
+      # 3. Check if space " " encountered break;
+      # 4. Start appending character left to right where space encountered;
+      # 5. Till condition i>=0;
+      
+        char [] chars=s.toCharArray();
+        StringBuilder res= new StringBuilder();
+        int n=chars.length;
+      
+        int i=n-1;
+
+        while(i>=0){
+          # Skip white sspaces
+            while(i>=0 && chars[i]==' '){
+                i--;
+            }
+
+            if(i<0) break;
+              # Finding the end of the word.
+            int end=i;
+          # Findign the start of the word
+            while(i>=0 && chars[i]!=' '){
+                i--;
+            }
+
+            if(res.length()>0){
+                res.append(' ');
+            }
+
+            for(int j=i+1; j<=end; j++){
+                res.append(chars[j]);
+            }
+        }
+        
+        return res.toString();
+}
+}
