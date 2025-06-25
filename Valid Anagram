@@ -1,0 +1,32 @@
+//Apprroach
+//1. Initalizing arr of size 26 letter;
+//2. Incrementing the count from 1st string;
+//3. Decrementing the count from 2nd string;
+//4. End the same count will subtract each other, so it will be 0;
+//5. If it not subtract each other it means count can be 3, -3 like this.
+//6. Check if (count!=0) return false;
+
+
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        int m=s.length();
+        int n=t.length();
+        if(m!=n){
+            return false;
+        }
+        int arr[]=new int[26];
+        for(int i=0;i<m;i++){
+            arr[s.charAt(i)-'a']++;
+            arr[t.charAt(i)-'a']--;
+        }
+        
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]!=0){
+                return false;
+            }
+        }
+        System.out.println("true");
+        return true;
+      
+    }
+}
