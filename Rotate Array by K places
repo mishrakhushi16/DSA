@@ -1,0 +1,33 @@
+Approach
+Reverse the whole array
+Reverse till k
+Reverse from k to n
+
+class Solution {
+    public void reverse(int[] nums,int start,int end){
+        while(start<end){
+       int temp=nums[start];
+       nums[start]=nums[end];
+       nums[end]=temp;
+       start++;
+       end--;
+        }
+        
+    }
+   public void rotate(int[] nums, int k) {
+   int n=nums.length;
+     k = k % n; // Normalize k
+//      If k = 3, rotate 3 steps → correct
+// But if k = 10 → rotating 10 steps is same as rotating 10 % 7 = 3 steps
+// → because every full n rotation brings the array back to original.
+
+        // Step 1: Reverse the whole array
+        reverse(nums, 0, n - 1);
+
+        // Step 2: Reverse first k elements
+        reverse(nums, 0, k - 1);
+
+        // Step 3: Reverse remaining elements
+        reverse(nums, k, n - 1);
+   }
+}
