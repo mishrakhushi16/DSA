@@ -1,0 +1,32 @@
+Assuming qs like finding maximum lenggth subarray which has k's 0 in it.
+we will start from left and if zero encountered increase the zerocount
+Tracking zero count so that it does not go beyond k's 0
+If zero is beyound we need to shrink from left until the zero is removed and zerocount is less than required.
+This is sliding window.
+
+class Solution {
+    public int longestOnes(int[] arr, int k) {
+        int left=0;
+        int right=0;
+        int zerocount=0;
+        int maxlen=0;
+        while(right<arr.length){
+            //wherever getting zero increqasethe count of zero
+            if(arr[right]==0){
+                zerocount++;
+            }
+            //next step check that count of zero do not exceed if count has exceeded we need to shrink from left unitl count is <= k zeros allowed
+            while(zerocount>k){
+                if(arr[left]==0){
+                    zerocount--;
+                }
+                left++;
+            }
+            //Checking the length of subarray which has ones and flipped zeros.
+            maxlen=Math.max(maxlen,right-left+1);
+            //keep on extending to right.
+            right++;
+        }
+      return maxlen;  
+    }
+}
