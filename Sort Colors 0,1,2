@@ -1,0 +1,22 @@
+ int low=0;
+        int mid=0;
+        int high=colors.length-1;
+        
+        while(mid<=high){
+            if(colors[mid]==0){
+                int temp=colors[low];
+                colors[low]=colors[mid];
+                colors[mid]=temp;
+                low++;
+                mid++;
+            }else if(colors[mid]==1){
+                mid++;
+            }
+            else{
+                int temp=colors[high];
+                colors[high]=colors[mid];
+                colors[mid]=temp;
+                high--;
+            }
+        }
+        System.out.println(Arrays.toString(colors));
