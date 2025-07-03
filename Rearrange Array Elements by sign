@@ -1,0 +1,44 @@
+class Solution {
+    public int[] rearrangeArray(int[] nums) {
+    int left=0;
+    int right=1;
+    int ans[]=new int[nums.length];
+    for(int i=0;i<nums.length;i++){
+        if(nums[i]>0){
+            ans[left]=nums[i];
+            left+=2;
+        }else{
+            ans[right]=nums[i];
+            right+=2;
+        }
+    }
+     return ans;
+
+        //Not optimal using two list space;
+        //  ArrayList <Integer> positive= new ArrayList<>();
+        // ArrayList <Integer> negative=new ArrayList<>();
+        // for(int i=0;i<nums.length;i++){
+        //     if(nums[i]>=0){
+        //         positive.add(nums[i]);
+        //     }
+        //     else{
+        //         negative.add(nums[i]);
+        //     }
+        // }
+        // int postrack=0;
+        // int negtrack=0;
+        // for(int i=0;i<nums.length;i++){
+        //     if(i%2==0){
+        //         nums[i]=positive.get(postrack);
+        //         postrack++;
+        //     }
+        //     else{
+        //         nums[i]=negative.get(negtrack);
+        //         negtrack++;
+        //     }
+        // }
+        // return nums;
+        
+        
+    }
+}
